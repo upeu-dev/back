@@ -3,9 +3,17 @@ from django.db import models
 
 # Create your models here.
 
+JERARQUIA_ACAD_TIPO_CHOISES = (
+    ('INSTITUCION', 'INSTITUCION'),
+    ('FACULTAD', 'FACULTAD'),
+    ('ESCUELA', 'ESCUELA'),
+    ('CARRERA', 'CARRERA'),
+    ('DEPARTAMENTO', 'DEPARTAMENTO'),
+)
+
 
 class JerarquiaAcad(models.Model):
-
+    tipo = models.CharField(max_length=10, choices=JERARQUIA_ACAD_TIPO_CHOISES)
     institucion = models.ForeignKey('Institucion',  null=True, blank=True)
     parent = models.ForeignKey("self", null=True, blank=True)
 
