@@ -4,6 +4,16 @@ from django.db import models
 # Create your models here.
 
 
+class JerarquiaAcad(models.Model):
+
+    institucion = models.ForeignKey('Institucion',  null=True, blank=True)
+    parent = models.ForeignKey("self", null=True, blank=True)
+
+    class Meta:
+        verbose_name = "JerarquiaAcad"
+        verbose_name_plural = "JerarquiaAcads"
+
+
 class Institucion(models.Model):
 
     nombre = models.CharField(max_length=60)
@@ -12,7 +22,7 @@ class Institucion(models.Model):
     estructura_validada = models.BooleanField(default=False)
 
     jerarquia_acad = models.ForeignKey(
-        'JerarquiaAcad', related_name="institucion_set", null=True, blank=True)
+        JerarquiaAcad, related_name="institucion_set", null=True, blank=True)
 
     class Meta:
         verbose_name = "Institución"
@@ -20,16 +30,6 @@ class Institucion(models.Model):
 
     def __str__(self):
         return self.abrev
-
-
-class JerarquiaAcad(models.Model):
-
-    institucion = models.ForeignKey(Institucion, null=True, blank=True)
-    parent = models.ForeignKey("self", null=True, blank=True)
-
-    class Meta:
-        verbose_name = "Institución"
-        verbose_name_plural = "Instituciones"
 
 
 class Facultad(models.Model):
