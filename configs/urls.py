@@ -3,7 +3,7 @@ from django.conf.urls import include, url
 
 # Routers provide an easy way of automatically determining the URL conf.
 from rest_framework import routers
-from configs.views.UserView import UserViewSet
+from configs.views.UserView import UserViewSet, ApiEndpoint
 from configs.views.JerarquiaAcadView import JerarquiaAcadViewSet
 from configs.views.InstitucionView import InstitucionViewSet
 from configs.views.FacultadView import FacultadViewSet
@@ -21,5 +21,6 @@ router.register(r'escuelas', EscuelaViewSet)
 urlpatterns = [
 
     url(r'^', include(router.urls)),
+    url(r'^api/hello', ApiEndpoint.as_view()),  # and also a resource server!
 
 ]
