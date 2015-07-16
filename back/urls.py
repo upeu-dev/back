@@ -17,19 +17,12 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 
-# Routers provide an easy way of automatically determining the URL conf.
-from rest_framework import routers
-from configs.views import UserViewSet
-
-router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
-
-
 urlpatterns = [
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^', include(router.urls)),
+    url(r'^configs/', include('configs.urls')),
+
     url(r'^api-auth/',
         include('rest_framework.urls', namespace='rest_framework')),
 ]
