@@ -23,7 +23,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'is_staff')
+        fields = ('id', 'username', 'email', 'is_staff')
 
 # ViewSets define the view behavior.
 
@@ -32,4 +32,4 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     #required_scopes = ['groups']
-    #permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
+    permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
