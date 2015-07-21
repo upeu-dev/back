@@ -90,15 +90,14 @@ WSGI_APPLICATION = 'back.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'XE',
+        'SID': 'XE',
         'USER': 'django',
         'PASSWORD': '123456',
         'HOST': '127.0.0.1',
         'PORT': '1521',
     },
-    'default2': {
+    'defaulto': {
         'ENGINE': 'django.db.backends.oracle',
-        'SID': 'XE',
         'NAME': 'XE',
         'USER': 'django',
         'PASSWORD': '123456',
