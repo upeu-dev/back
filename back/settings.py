@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-
+import config
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -89,20 +89,13 @@ WSGI_APPLICATION = 'back.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.oracle',
-        'SID': 'XE',
-        'USER': 'django',
-        'PASSWORD': '123456',
-        'HOST': '127.0.0.1',
-        'PORT': '1521',
-    },
-    'defaulto': {
-        'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'XE',
-        'USER': 'django',
-        'PASSWORD': '123456',
-        'HOST': '127.0.0.1',
-        'PORT': '1521',
+        'ENGINE': config.DB['ENGINE'],
+        'SID': config.DB['SID'],
+        'NAME': config.DB['NAME'],
+        'USER': config.DB['USER'],
+        'PASSWORD': config.DB['PASSWORD'],
+        'HOST': config.DB['HOST'],
+        'PORT': config.DB['PORT'],
     },
     'sqlite3': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -162,5 +155,6 @@ REST_FRAMEWORKc = {
 
 OAUTH2_PROVIDER = {
     # this is the list of available scopes
-    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'}
+    'SCOPES': {'read': 'Read scope', 'write': 'Write scope',
+               'groups': 'Access to your groups'}
 }
