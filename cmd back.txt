@@ -1,0 +1,66 @@
+13-07-2015 INSTALACION DE DJANGO
+================================
+0. Instalar el entorno virtual
+pip install virtualenv
+
+1. Crear/activar el entorno virtual e instalar django
+virtualenv dj18
+dj18\Script\activate
+(dj18)d:\pyupeu>pip install Django
+
+2. Crear el proyecto y ejecutar
+django-admin stratproject back
+back>python manage.py runserver 8000
+
+3. Sincronizar la db (1.8 djangomigrations)
+back>python manage.py syncdb
+
+4. Crear la app
+back>django-admin stratapp params
+
+5. Crear el model, add 'params' y realizar migracion
+back>python manage.py makemigrations
+back>python manage.py migrate
+
+6. Opcional (Registrar el model en el admin)
+admin.site.register(Cliente)
+
+14-07-2015 ORM DJANGO
+=====================
+1. Instalar Enterprise Architect
+
+GIT
+====
+conectarse al servidor remoto
+git clone https://github.com/upeudev/back.git
+
+actualizar mi servidor local
+git pull
+
+Subir tareas
+git status
+git add .
+git commit -m "coment"
+git push -u origin master
+
+
+--016100696 claro tv (18 de cada mes)
+
+REST
+====
+pip install djangorestframework
+
+
+OAUT
+====
+pip install djangorestframework
+
+1.+Permissions
+
+2.Decouple resource server from authorization server
+ToDo
+====
+
+
+3.Single Sign-On (SSO) between multiple applications in different domain
+4.Social Auth
